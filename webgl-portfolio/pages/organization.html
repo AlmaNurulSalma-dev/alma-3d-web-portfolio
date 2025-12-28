@@ -1653,6 +1653,47 @@
         yoyo: true
       });
 
+      // Close Popup Button (communicates with parent window)
+      const closePopupBtn = document.createElement('button');
+      closePopupBtn.innerHTML = '&times;';
+      closePopupBtn.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        background: #ff0000;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 35px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        transition: all 0.3s;
+        line-height: 45px;
+        padding: 0;
+      `;
+      closePopupBtn.onmouseover = () => {
+        closePopupBtn.style.background = '#ff3333';
+        closePopupBtn.style.transform = 'scale(1.1)';
+      };
+      closePopupBtn.onmouseout = () => {
+        closePopupBtn.style.background = '#ff0000';
+        closePopupBtn.style.transform = 'scale(1)';
+      };
+      closePopupBtn.onclick = () => {
+        // Try to close parent popup if in iframe
+        if (window.parent && window.parent.closePopup) {
+          window.parent.closePopup();
+        } else {
+          // Fallback: go back in history
+          window.history.back();
+        }
+      };
+      document.body.appendChild(closePopupBtn);
+
       // Image Lightbox Functionality
       const images = document.querySelectorAll('.timeline-image, .timeline-logo, .org-image');
       const lightbox = document.createElement('div');
