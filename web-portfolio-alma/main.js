@@ -11,7 +11,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 // ========================================
 
 const CONFIG = {
-    MODEL_PATH: './assets/models/bismillah5.glb',
+    MODEL_PATH: './assets/models/bismillah6.glb',
     AUDIO: {
         CAT_MEOW_SLOW: 'assets_sound/cat-meow-slow.mp3',
         CAT_MEOW_FAST: 'assets_sound/cat-meow-fast.mp3'
@@ -153,7 +153,7 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, RENDERER_CONFIG.MAX_PIXEL_RATIO));
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-renderer.shadowMap.enabled = true;
+renderer.shadowMap.enabled = false; // Shadow disabled
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = RENDERER_CONFIG.TONE_MAPPING_EXPOSURE;
 
@@ -207,21 +207,11 @@ controls.update();
 // LIGHTING SETUP
 // ========================================
 
-// Key light (main directional light with shadows)
+// Key light (main directional light without shadows)
 const sun = new THREE.DirectionalLight(0xfff8e7, 1.8);
-sun.castShadow = true;
+sun.castShadow = false; // Shadow disabled
 sun.position.set(200, 350, 200);
 sun.target.position.set(0, 0, 0);
-sun.shadow.camera.left = -400;
-sun.shadow.camera.right = 400;
-sun.shadow.camera.top = 400;
-sun.shadow.camera.bottom = -400;
-sun.shadow.camera.near = 0.5;
-sun.shadow.camera.far = 1000;
-sun.shadow.bias = -0.0005;
-sun.shadow.normalBias = 0.05;
-sun.shadow.mapSize.width = 4096;
-sun.shadow.mapSize.height = 4096;
 scene.add(sun);
 
 // Fill lights to soften shadows
@@ -358,9 +348,9 @@ loader.load(CONFIG.MODEL_PATH, function (glb) {
                 child.material.side = THREE.DoubleSide;
             }
 
-            // Enable shadows
-            child.castShadow = true;
-            child.receiveShadow = true;
+            // Shadows disabled
+            child.castShadow = false;
+            child.receiveShadow = false;
         }
     });
 
