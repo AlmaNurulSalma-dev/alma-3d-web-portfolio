@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character encoding untuk support karakter khusus -->
+    <meta charset="UTF-8">
+    
+    <!-- Viewport settings untuk responsive design di mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title halaman -->
+    <title>Alma's House Inside- 3D Interactive Experience</title>
+    
+    <!-- Link ke file CSS eksternal -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/components/popup.css">
+    
+    <!-- Google Fonts - Pixelify Sans untuk aesthetic retro/pixel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Canvas for Three.js rendering -->
+    <canvas id="experience-canvas"></canvas>
+
+    <!-- Camera Mode Indicator -->
+    <div id="camera-mode-indicator" class="camera-indicator" style="background: rgba(0, 0, 0, 0.7);">
+        <span class="camera-mode-text">📷 FOLLOW MODE - Press C to free camera</span>
+    </div>
+
+    <!-- Pixel Tooltips Container -->
+    <div id="tooltips-container"></div>
+
+    <!-- Modal System -->
+    <div class="modal hidden">
+        <div class="modal-wrapper">
+            <div class="modal-header">
+                <h2 class="modal-title">House Title</h2>
+                <div class="control-icons">
+                    <div class="control-icon star">★</div>
+                    <div class="control-icon heart">♥</div>
+                    <div class="control-icon music">♫</div>
+                </div>
+            </div>
+            <p class="modal-subtitle">Welcome to the house!</p>
+            <div class="modal-buttons">
+                <button class="modal-button modal-button-no">NO</button>
+                <button class="modal-button modal-button-yes">YES</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import map untuk Three.js modules -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <!-- Main JavaScript module -->
+    <script type="module" src="./main.js"></script>
+
+    <!-- Pop-up Overlay System -->
+    <div id="popup-overlay" class="popup-overlay">
+        <div class="popup-window">
+            <!-- Pop-up Header (Windows 98 style) -->
+            <div class="popup-header">
+                <div class="popup-title">
+                    <span class="popup-icon">📄</span>
+                    <span class="popup-title-text">Loading...</span>
+                </div>
+                <div class="popup-controls">
+                    <button class="control-btn minimize" aria-label="Minimize">_</button>
+                    <button class="control-btn maximize" aria-label="Maximize">□</button>
+                </div>
+            </div>
+
+            <!-- Pop-up Body with Frame -->
+            <div class="popup-body">
+                <button id="close-popup" aria-label="Close">×</button>
+                <iframe id="popup-iframe" src="" title="Page Content"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup system loader -->
+    <script src="./js/modules/popup-loader.js"></script>
+</body>
+</html>
