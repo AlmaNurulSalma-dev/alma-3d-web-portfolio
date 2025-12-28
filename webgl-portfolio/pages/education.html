@@ -1612,6 +1612,66 @@
         repeat: -1,
         yoyo: true
       });
+
+      // Image Lightbox Functionality
+      const images = document.querySelectorAll('.timeline-image, .timeline-logo');
+      const lightbox = document.createElement('div');
+      lightbox.id = 'lightbox';
+      lightbox.style.cssText = `
+        display: none;
+        position: fixed;
+        z-index: 10000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        justify-content: center;
+        align-items: center;
+      `;
+
+      const lightboxImg = document.createElement('img');
+      lightboxImg.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+      `;
+
+      const closeBtn = document.createElement('span');
+      closeBtn.innerHTML = '&times;';
+      closeBtn.style.cssText = `
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        color: #ff0000;
+        font-size: 50px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.3s;
+      `;
+      closeBtn.onmouseover = () => closeBtn.style.color = '#ff5555';
+      closeBtn.onmouseout = () => closeBtn.style.color = '#ff0000';
+      closeBtn.onclick = () => lightbox.style.display = 'none';
+
+      lightbox.appendChild(lightboxImg);
+      lightbox.appendChild(closeBtn);
+      document.body.appendChild(lightbox);
+
+      // Close lightbox when clicking outside image
+      lightbox.onclick = (e) => {
+        if (e.target === lightbox) {
+          lightbox.style.display = 'none';
+        }
+      };
+
+      // Add click event to all images
+      images.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.onclick = () => {
+          lightbox.style.display = 'flex';
+          lightboxImg.src = img.src;
+        };
+      });
     </script>
   </body>
 </html>
