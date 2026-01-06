@@ -1,62 +1,77 @@
 /*
  * IFRAME FIX CSS
  * Override styles for pages loaded inside popup iframe
- * Maintains horizontal scroll but ensures visibility
+ * Fixes layout issues caused by Locomotive Scroll and horizontal layouts
  */
 
-/* Enable horizontal scrolling in iframe */
-body.in-iframe {
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
-  height: 100vh !important;
-}
-
-/* Fix for work.html horizontal scroll in iframe - keep horizontal layout */
-body.in-iframe .sidescrollbox {
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
-  height: 100vh !important;
-  width: 100% !important;
-}
-
+/* Fix for work.html horizontal scroll in iframe */
 body.in-iframe .p-grid.scroller {
-  position: relative !important;  /* Changed from absolute to relative */
-  left: 0 !important;
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  overflow: visible !important;
+}
+
+body.in-iframe .sidescrollbox {
+  overflow: visible !important;
+  height: auto !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  position: relative !important;
   top: 0 !important;
-  /* Keep original width for horizontal scroll */
-  height: 100vh !important;
-  display: flex !important;  /* Keep flex for horizontal layout */
 }
 
 body.in-iframe .p-col {
-  /* Keep original dimensions for horizontal scroll */
-  flex-shrink: 0 !important;  /* Prevent shrinking */
+  width: 100% !important;
+  height: auto !important;
+  margin-bottom: 2rem !important;
 }
 
-/* Hide fixed positioning elements in iframe */
-body.in-iframe .sound,
-body.in-iframe .trigger {
-  display: none !important;
+/* Disable Locomotive Scroll transforms in iframe */
+body.in-iframe [data-scroll] {
+  transform: none !important;
 }
 
-/* Fix navigation bar to not block content */
+/* Hide navigation bar completely in iframe to remove top gap */
 body.in-iframe .nav {
-  position: absolute !important;
-  z-index: 1000 !important;
-  pointer-events: none !important;  /* Allow clicking through */
-}
-
-body.in-iframe .nav * {
-  pointer-events: auto !important;  /* Re-enable clicks on nav items */
-}
-
-/* Disable Locomotive Scroll custom scrollbar if interfering */
-body.in-iframe .c-scrollbar {
   display: none !important;
 }
 
-/* Ensure iframe can scroll horizontally */
-body.in-iframe,
-body.in-iframe html {
-  scroll-behavior: smooth !important;
+/* Remove fixed positioning elements in iframe */
+body.in-iframe .sound,
+body.in-iframe .trigger,
+body.in-iframe .rotate {
+  display: none !important;
+}
+
+/* Ensure content is visible from top */
+body.in-iframe {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+/* REMOVE large top padding - this might be causing the gap */
+body.in-iframe main,
+body.in-iframe .scroller {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Remove body margins/padding */
+body.in-iframe {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove nav height if it's causing gap */
+body.in-iframe .nav {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Ensure first element has no top margin */
+body.in-iframe .p-grid.scroller > *:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
