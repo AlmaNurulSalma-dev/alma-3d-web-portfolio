@@ -1,77 +1,33 @@
 /*
  * IFRAME FIX CSS
- * Override styles for pages loaded inside popup iframe
- * Fixes layout issues caused by Locomotive Scroll and horizontal layouts
+ * Minimal fixes for pages loaded inside popup iframe
+ * Removes unnecessary UI elements and ensures proper layout
  */
 
-/* Fix for work.html horizontal scroll in iframe */
-body.in-iframe .p-grid.scroller {
-  position: static !important;
-  width: 100% !important;
-  height: auto !important;
-  display: block !important;
-  overflow: visible !important;
+/* Remove body spacing */
+body.in-iframe {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
 }
 
-body.in-iframe .sidescrollbox {
-  overflow: visible !important;
-  height: auto !important;
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-  position: relative !important;
-  top: 0 !important;
-}
-
-body.in-iframe .p-col {
-  width: 100% !important;
-  height: auto !important;
-  margin-bottom: 2rem !important;
-}
-
-/* Disable Locomotive Scroll transforms in iframe */
-body.in-iframe [data-scroll] {
-  transform: none !important;
-}
-
-/* Hide navigation bar completely in iframe to remove top gap */
-body.in-iframe .nav {
-  display: none !important;
-}
-
-/* Remove fixed positioning elements in iframe */
+/* Hide navigation and UI elements that aren't needed in popup context */
+body.in-iframe .nav,
 body.in-iframe .sound,
 body.in-iframe .trigger,
 body.in-iframe .rotate {
   display: none !important;
 }
 
-/* Ensure content is visible from top */
-body.in-iframe {
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-}
-
-/* REMOVE large top padding - this might be causing the gap */
-body.in-iframe main,
-body.in-iframe .scroller {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-}
-
-/* Remove body margins/padding */
-body.in-iframe {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Remove nav height if it's causing gap */
-body.in-iframe .nav {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-/* Ensure first element has no top margin */
-body.in-iframe .p-grid.scroller > *:first-child {
+/* Ensure main content containers have no top offset */
+body.in-iframe .sidescrollbox,
+body.in-iframe main {
   margin-top: 0 !important;
   padding-top: 0 !important;
+}
+
+/* Remove Locomotive Scroll transforms that might cause positioning issues */
+body.in-iframe [data-scroll] {
+  transform: none !important;
 }
