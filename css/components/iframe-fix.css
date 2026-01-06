@@ -4,12 +4,15 @@
  * Removes unnecessary UI elements and ensures proper layout
  */
 
-/* Remove body spacing */
-body.in-iframe {
+/* Remove body spacing and set proper sizing */
+body.in-iframe,
+body.in-iframe html {
   margin: 0 !important;
   padding: 0 !important;
   overflow-y: auto !important;
   overflow-x: hidden !important;
+  height: 100% !important;
+  min-height: 100% !important;
 }
 
 /* Hide navigation and UI elements that aren't needed in popup context */
@@ -20,8 +23,28 @@ body.in-iframe .rotate {
   display: none !important;
 }
 
-/* Ensure main content containers have no top offset */
-body.in-iframe .sidescrollbox,
+/* Fix work.html positioning - move content up */
+body.in-iframe .sidescrollbox {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+body.in-iframe .p-grid.scroller {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100% !important;
+  max-height: 100% !important;
+}
+
+/* Ensure main content has no top offset */
 body.in-iframe main {
   margin-top: 0 !important;
   padding-top: 0 !important;
