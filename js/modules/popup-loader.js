@@ -8,7 +8,7 @@
 
 // Path prefixes
 const PATHS = {
-  WEBGL: '../webgl-portfolio/pages/',
+  WEBGL: 'pages/',
   LOCAL: 'pages/'
 };
 

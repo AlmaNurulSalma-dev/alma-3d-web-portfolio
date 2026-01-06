@@ -13,8 +13,8 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 const CONFIG = {
     MODEL_PATH: './assets/models/bismillah5.glb',
     AUDIO: {
-        CAT_MEOW_SLOW: 'assets_sound/cat-meow-slow.mp3',
-        CAT_MEOW_FAST: 'assets_sound/cat-meow-fast.mp3'
+        CAT_MEOW_SLOW: 'assets/sounds/cat-meow-slow.mp3',
+        CAT_MEOW_FAST: 'assets/sounds/cat-meow-fast.mp3'
     }
 };
 
