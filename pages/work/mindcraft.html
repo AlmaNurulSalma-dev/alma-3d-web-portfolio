@@ -5,6 +5,7 @@
     <title>Alma Nurul Salma — MindCraft</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="../../css/portfolio.css" />
+    <link rel="stylesheet" href="../../css/components/iframe-fix.css" />
     <script type="text/javascript">
       !(function (o, c) {
         var n = c.documentElement,
@@ -53,6 +54,13 @@
     />
     <script src="../../javascript/cursor/index.js"></script>
     <script>
+      // Detect if loaded in iframe and add class to body
+      if (window.self !== window.top) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('in-iframe');
+        });
+      }
+
       window.isMobile = false;
       if (/Mobi|Android/i.test(navigator.userAgent)) {
         window.isMobile = true;
@@ -943,6 +951,13 @@
     </main>
 
     <script>
+      // Detect if loaded in iframe and add class to body
+      if (window.self !== window.top) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('in-iframe');
+        });
+      }
+
       const dpi = window.devicePixelRatio;
 
       function burgerInit() {
@@ -1299,10 +1314,24 @@
       burgerInit();
     </script>
     <script>
+      // Detect if loaded in iframe and add class to body
+      if (window.self !== window.top) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('in-iframe');
+        });
+      }
+
       let soundToggler = null;
       if (!window.isMobile) soundToggler = new SoundToggler();
     </script>
     <script>
+      // Detect if loaded in iframe and add class to body
+      if (window.self !== window.top) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('in-iframe');
+        });
+      }
+
       let customCursor;
       if (!window.isMobile) {
         customCursor = new CustomCursor();
@@ -1322,6 +1351,13 @@
       };
     </script>
     <script>
+      // Detect if loaded in iframe and add class to body
+      if (window.self !== window.top) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('in-iframe');
+        });
+      }
+
       const soundReactor = new SoundReactor(
         "https://cdn.jsdelivr.net/gh/niccolomiranda/chiara-luzzana/sound/mainSound.mp3"
       );
@@ -1331,6 +1367,13 @@
       }
     </script>
     <script>
+      // Detect if loaded in iframe and add class to body
+      if (window.self !== window.top) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('in-iframe');
+        });
+      }
+
       const scroll = new LocomotiveScroll({
         el: document.querySelector("[data-scroll-container]"),
         smooth: true,

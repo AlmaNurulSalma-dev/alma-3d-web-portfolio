@@ -5,6 +5,7 @@
     <title>Alma Nurul Salma — Contact</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="../css/portfolio.css" />
+    <link rel="stylesheet" href="../css/components/iframe-fix.css" />
     <style>
       @media (min-width: 992px) {
         html.w-mod-js:not(.w-mod-ix)
@@ -209,6 +210,13 @@
     />
     <script src="../javascript/cursor/index.js"></script>
     <script>
+      // Detect if loaded in iframe and add class to body
+      if (window.self !== window.top) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('in-iframe');
+        });
+      }
+
       window.isMobile = false;
       if (/Mobi|Android/i.test(navigator.userAgent)) {
         window.isMobile = true;
@@ -1009,6 +1017,13 @@
       ]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script
     ><![endif]-->
     <script>
+      // Detect if loaded in iframe and add class to body
+      if (window.self !== window.top) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('in-iframe');
+        });
+      }
+
       let dpi = window.devicePixelRatio || 1;
       window.onload = function () {
         !(function () {
@@ -1097,6 +1112,13 @@
       };
     </script>
     <script>
+      // Detect if loaded in iframe and add class to body
+      if (window.self !== window.top) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('in-iframe');
+        });
+      }
+
       if ($(window).width() >= 991) {
         function initSmoothScroll() {
           let o,
@@ -1159,6 +1181,13 @@
       }
     </script>
     <script>
+      // Detect if loaded in iframe and add class to body
+      if (window.self !== window.top) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('in-iframe');
+        });
+      }
+
       const burgerBP = [
         {
           sWidth: 1920,
@@ -1557,10 +1586,24 @@
       burgerInit();
     </script>
     <script>
+      // Detect if loaded in iframe and add class to body
+      if (window.self !== window.top) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('in-iframe');
+        });
+      }
+
       let soundToggler = null;
       if (!window.isMobile) soundToggler = new SoundToggler();
     </script>
     <script>
+      // Detect if loaded in iframe and add class to body
+      if (window.self !== window.top) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('in-iframe');
+        });
+      }
+
       let customCursor;
       if (!window.isMobile) {
         customCursor = new CustomCursor();
@@ -1580,6 +1623,13 @@
       };
     </script>
     <script>
+      // Detect if loaded in iframe and add class to body
+      if (window.self !== window.top) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('in-iframe');
+        });
+      }
+
       const soundReactor = new SoundReactor(
         "https://cdn.jsdelivr.net/gh/niccolomiranda/chiara-luzzana/sound/mainSound.mp3"
       );

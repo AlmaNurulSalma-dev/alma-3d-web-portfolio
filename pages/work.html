@@ -11,6 +11,7 @@
       type="text/css"
     /> -->
     <link rel="stylesheet" href="../css/portfolio.css" />
+    <link rel="stylesheet" href="../css/components/iframe-fix.css" />
     <!--[if lt IE 9
       ]><script
         src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"
@@ -62,9 +63,16 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/locomotivemtl/locomotive-scroll/dist/locomotive-scroll.min.css"
     />
-    <script src="../javascript/cursor/index.js"></script>
+    <script src="../js/modules/cursor.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/gh/niccolomiranda/chiara-luzzana/jsSnippets/customCursor10/index.js"></script> -->
     <script>
+      // Detect if loaded in iframe and add class to body
+      if (window.self !== window.top) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('in-iframe');
+        });
+      }
+
       window.isMobile = false;
       if (/Mobi|Android/i.test(navigator.userAgent)) {
         window.isMobile = true;
