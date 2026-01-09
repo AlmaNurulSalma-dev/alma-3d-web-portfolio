@@ -1,9 +1,3 @@
-/*
- * IFRAME FIX CSS
- * Minimal fixes for pages loaded inside popup iframe
- * Removes unnecessary UI elements and ensures proper layout
- */
-
 /* Remove body spacing and set proper sizing */
 body.in-iframe,
 body.in-iframe html {

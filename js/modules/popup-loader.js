@@ -79,8 +79,6 @@ const tooltipLabels = {
 
   // Skills & Education
   'values': 'Values',
-  // 'ruang-tidur-lukisan-kecil-1': excluded - no tooltip needed
-  // 'ruangTidurLukisanKecil1': excluded - no tooltip needed
   'softSkills': 'Projects',
   'ruang-skincare-lukisan-puzzle': 'Projects',
   'ruangSkincareLukisanPuzzle': 'Projects',
@@ -88,13 +86,9 @@ const tooltipLabels = {
   'ruang-skincare-lukisan-gradcap': 'Education',
   'ruangSkincareLukisanGradcap': 'Education',
   'currentlyLearning': 'Currently Learning',
-  // 'ruang-tidur-lukisan-kecil-2': excluded - no tooltip needed
-  // 'ruangTidurLukisanKecil2': excluded - no tooltip needed
 
   // Experience & Organizations
   'certificates': 'Certifications',
-  // 'buttonTodoListCertificate': excluded - no tooltip needed
-  // 'button-to-do-list-certificate': excluded - no tooltip needed
   'ruang-belajar-mading-to-do-list': 'Certifications',
   'ruangBelajarMadingTodoList': 'Certifications',
   'organizations': 'Organizations',
